@@ -1,6 +1,5 @@
 package com.example.administrator.minedemo;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,13 +15,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     TextView ceshi0, ceshi1, ceshi2, ceshi3;
     String permissions;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        context = this;
 
         setContentView(R.layout.activity_main);
         ceshi0 = (TextView) findViewById(R.id.ceshi0);
