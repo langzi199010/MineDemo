@@ -7,14 +7,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.administrator.minedemo.tools.LogUtils;
+import com.example.administrator.minedemo.tools.MyPermissions;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.PermissionListener;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+
     TextView ceshi0, ceshi1, ceshi2, ceshi3;
-    String permissions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +31,17 @@ public class MainActivity extends AppCompatActivity {
         ceshi1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                set();
+                set(MyPermissions.CALL_PHONE);
             }
         });
 
     }
 
-    private void set() {
+    private void set(String permission) {
         //申请录音权限
         AndPermission.with(this)
                 .requestCode(100)
-                .permission(android.Manifest.permission.CALL_PHONE)
+                .permission(permission)
                 .callback(listener)
                 // rationale作用是：用户拒绝一次权限，再次申请时先征求用户同意，再打开授权对话框；
                 // 这样避免用户勾选不再提示，导致以后无法申请权限。
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case 200: { // 这个400就是上面defineSettingDialog()的第二个参数。
                 // 你可以在这里检查你需要的权限是否被允许，并做相应的操作。
-                set();
+                set(MyPermissions.CALL_PHONE);
                 break;
             }
         }
