@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       //asdfasdfasdfasdfasfd
+       //bbbbbbbb
         setContentView(R.layout.activity_main);
         ceshi0 = (TextView) findViewById(R.id.ceshi0);
         ceshi1 = (TextView) findViewById(R.id.ceshi1);
