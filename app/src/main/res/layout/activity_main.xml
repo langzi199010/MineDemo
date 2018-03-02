@@ -20,11 +20,11 @@ android:orientation="vertical"
             android:text="0" />
 
         <TextView
-            android:id="@+id/ceshi1"
+            android:id="@+id/dialog_tv"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="1" />
+            android:text="dialogFragment" />
 
         <TextView
             android:id="@+id/ceshi2"

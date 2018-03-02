@@ -16,7 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
-    TextView ceshi0, ceshi1, ceshi2, ceshi3;
+    TextView ceshi0, dialog_tv, ceshi2, ceshi3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +25,22 @@ public class MainActivity extends AppCompatActivity {
        //bbbbbbbbcccddeeff
         setContentView(R.layout.activity_main);
         ceshi0 = (TextView) findViewById(R.id.ceshi0);
-        ceshi1 = (TextView) findViewById(R.id.ceshi1);
+        dialog_tv = (TextView) findViewById(R.id.dialog_tv);
         ceshi2 = (TextView) findViewById(R.id.ceshi2);
         ceshi3 = (TextView) findViewById(R.id.ceshi3);
 
 
-        ceshi1.setOnClickListener(new View.OnClickListener() {
+        ceshi0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 set(MyPermissions.CALL_PHONE);
+            }
+        });
+        dialog_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Intent intent=new Intent(MainActivity.this,DialogActivity.class);
+            startActivity(intent);
             }
         });
 
