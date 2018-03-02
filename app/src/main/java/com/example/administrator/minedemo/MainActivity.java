@@ -22,12 +22,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       //bbbbbbbb
+       //bbbbbbbbcccddee
         setContentView(R.layout.activity_main);
         ceshi0 = (TextView) findViewById(R.id.ceshi0);
         ceshi1 = (TextView) findViewById(R.id.ceshi1);
         ceshi2 = (TextView) findViewById(R.id.ceshi2);
         ceshi3 = (TextView) findViewById(R.id.ceshi3);
+
+
         ceshi1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
