@@ -6,113 +6,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.administrator.minedemo.tools.LogUtils;
 import com.example.administrator.minedemo.tools.MyPermissions;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.PermissionListener;
 
-import java.util.List;
+import java.security.acl.Permission;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    TextView ceshi0, dialog_tv, ceshi2, ceshi3;
+    @BindView(R.id.main_quanxian)
+    TextView mainQuanxian;
+    @BindView(R.id.main_dialog)
+    TextView mainDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       //bbbbbbbbcccddeeff
+        //bbbbbbbbcccddeeff
         setContentView(R.layout.activity_main);
-        ceshi0 = (TextView) findViewById(R.id.ceshi0);
-        dialog_tv = (TextView) findViewById(R.id.dialog_tv);
-        ceshi2 = (TextView) findViewById(R.id.ceshi2);
-        ceshi3 = (TextView) findViewById(R.id.ceshi3);
+        ButterKnife.bind(this);
 
-
-        ceshi0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                set(MyPermissions.CALL_PHONE);
-            }
-        });
-        dialog_tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            Intent intent=new Intent(MainActivity.this,DialogActivity.class);
-            startActivity(intent);
-            }
-        });
 
     }
 
-    private void set(String permission) {
-        //申请录音权限
-        AndPermission.with(this)
-                .requestCode(100)
-                .permission(permission)
-                .callback(listener)
-                // rationale作用是：用户拒绝一次权限，再次申请时先征求用户同意，再打开授权对话框；
-                // 这样避免用户勾选不再提示，导致以后无法申请权限。
-                // 你也可以不设置。
-                .rationale((requestCode, rationale) ->
-                        // 这里的对话框可以自定义，只要调用rationale.resume()就可以继续申请。
-                        AndPermission.rationaleDialog(this, rationale).show()
-                )
-                .start();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-    private PermissionListener listener = new PermissionListener() {
-        @Override
-        public void onSucceed(int requestCode, List<String> grantedPermissions) {
-            // 权限申请成功回调。
-
-            // 这里的requestCode就是申请时设置的requestCode。
-            // 和onActivityResult()的requestCode一样，用来区分多个不同的请求。
-            if(requestCode == 100) {
-                // TODO ...
-                if(AndPermission.hasPermission(MainActivity.this, grantedPermissions)) {
-                    // TODO 执行拥有权限时的下一步。
-                } else {
-                    // 使用AndPermission提供的默认设置dialog，用户点击确定后会打开App的设置页面让用户授权。
-                    AndPermission.defaultSettingDialog(MainActivity.this, 200).show();
-
-                    // 建议：自定义这个Dialog，提示具体需要开启什么权限，自定义Dialog具体实现上面有示例代码。
-                }
-            }
-        }
-
-        @Override
-        public void onFailed(int requestCode, List<String> deniedPermissions) {
-            // 权限申请失败回调。
-            if(requestCode == 100) {
-                LogUtils.i("222");
-                // TODO ...
-                // 是否有不再提示并拒绝的权限。
-
-                if(AndPermission.hasPermission(MainActivity.this, deniedPermissions)) {
-                    // TODO 执行拥有权限时的下一步。
-                } else {
-                    // 使用AndPermission提供的默认设置dialog，用户点击确定后会打开App的设置页面让用户授权。
-                    AndPermission.defaultSettingDialog(MainActivity.this, 200).show();
-
-                    // 建议：自定义这个Dialog，提示具体需要开启什么权限，自定义Dialog具体实现上面有示例代码。
-                }
-            }
-        }
-    };
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case 200: { // 这个400就是上面defineSettingDialog()的第二个参数。
-                // 你可以在这里检查你需要的权限是否被允许，并做相应的操作。
-                set(MyPermissions.CALL_PHONE);
+    @OnClick({R.id.main_quanxian, R.id.main_dialog})
+    public void onViewClicked(View view) {
+        Intent intent=null;
+        switch (view.getId()) {
+            case R.id.main_quanxian:
+                intent=new Intent(MainActivity.this, PermissionActivity.class);
+                startActivity(intent);
                 break;
-            }
+            case R.id.main_dialog:
+                intent=new Intent(MainActivity.this, DialogActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }
