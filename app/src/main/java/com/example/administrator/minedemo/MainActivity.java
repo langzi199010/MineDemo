@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.main_quanxian, R.id.main_dialog})
+    @OnClick({R.id.main_quanxian, R.id.main_dialog,R.id.main_okhttp})
     public void onViewClicked(View view) {
         Intent intent=null;
         switch (view.getId()) {
@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.main_dialog:
                 intent=new Intent(MainActivity.this, DialogActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.main_okhttp:
+                intent=new Intent(MainActivity.this, OkhttpActivity.class);
                 startActivity(intent);
                 break;
         }

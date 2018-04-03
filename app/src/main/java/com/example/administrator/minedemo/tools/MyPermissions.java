@@ -56,5 +56,5 @@ public  class MyPermissions {
     public static String VIBRATE = "android.permission.VIBRATE";     //允许应用程序控制振动器的权限
 
     public static String WRITE_CONTACTS = "android.permission.WRITE_CONTACTS";  //允许应用程序写入用户联系人的权限
-
+    public static String READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE";  //允许应用程序读写权限
 }

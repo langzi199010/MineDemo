@@ -26,6 +26,7 @@
         </activity>
         <activity android:name=".DialogActivity"></activity>
         <activity android:name=".PermissionActivity"></activity>
+        <activity android:name=".OkhttpActivity"></activity>
     </application>
 
 </manifest>

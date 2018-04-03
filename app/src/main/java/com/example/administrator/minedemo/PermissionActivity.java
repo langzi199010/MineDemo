@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.administrator.minedemo.tools.LogUtils;
+import com.example.administrator.minedemo.tools.MyLogUtils;
 import com.example.administrator.minedemo.tools.MyPermissions;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.PermissionListener;
@@ -29,7 +29,7 @@ public class PermissionActivity extends AppCompatActivity {
         quanxian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                set(MyPermissions.CALL_PHONE);
+                set(MyPermissions.READ_EXTERNAL_STORAGE);
             }
         });
 
@@ -79,7 +79,7 @@ public class PermissionActivity extends AppCompatActivity {
         public void onFailed(int requestCode, List<String> deniedPermissions) {
             // 权限申请失败回调。
             if(requestCode == 100) {
-                LogUtils.i("222");
+                MyLogUtils.i("222");
                 // TODO ...
                 // 是否有不再提示并拒绝的权限。
 
