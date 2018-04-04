@@ -38,9 +38,10 @@ dependencies {
     //butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    //okhttp
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-    compile'com.squareup.okio:okio:1.13.0'
+    /** gson  */
     compile 'com.google.code.gson:gson:2.8.2'
+    /** okgo 网络框架  */
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'com.readystatesoftware.chuck:library:1.0.4'
 }
+
