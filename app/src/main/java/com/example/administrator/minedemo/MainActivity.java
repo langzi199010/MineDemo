@@ -6,10 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.administrator.minedemo.tools.MyPermissions;
+import com.example.administrator.minedemo.recyclerViewTools.SmartRefreshActivity;
+import com.example.administrator.minedemo.recyclerViewTools.SmartRefreshActivity2;
 import com.example.administrator.minedemo.tools.NetWorkUtils;
-
-import java.security.acl.Permission;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     TextView mainQuanxian;
     @BindView(R.id.main_dialog)
     TextView mainDialog;
+    @BindView(R.id.smart_refresh)
+    TextView smart_refresh;
+    @BindView(R.id.smart_refresh2)
+    TextView smart_refresh2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mainQuanxian.setText(NetWorkUtils.cesh());
     }
 
-    @OnClick({R.id.main_quanxian, R.id.main_dialog,R.id.main_okhttp})
+    @OnClick({R.id.main_quanxian, R.id.main_dialog,R.id.main_okhttp,R.id.smart_refresh,R.id.smart_refresh2})
     public void onViewClicked(View view) {
         Intent intent=null;
         switch (view.getId()) {
@@ -47,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.main_okhttp:
                 intent=new Intent(MainActivity.this, OkhttpActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.smart_refresh:
+                //gif动画类型的 刷新
+                intent=new Intent(MainActivity.this, SmartRefreshActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.smart_refresh2:
+                intent=new Intent(MainActivity.this, SmartRefreshActivity2.class);
                 startActivity(intent);
                 break;
         }

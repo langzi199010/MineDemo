@@ -27,6 +27,8 @@
         <activity android:name=".DialogActivity"></activity>
         <activity android:name=".PermissionActivity"></activity>
         <activity android:name=".OkhttpActivity"></activity>
+        <activity android:name=".recyclerViewTools.SmartRefreshActivity"></activity>
+        <activity android:name=".recyclerViewTools.SmartRefreshActivity2"></activity>
     </application>
 
 </manifest>
