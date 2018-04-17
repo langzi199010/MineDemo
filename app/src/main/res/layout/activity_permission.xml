@@ -18,6 +18,12 @@
             android:layout_height="100dp"
             android:gravity="center"
             android:text="获取权限" />
+        <TextView
+            android:id="@+id/quanxian2"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="获取权限2" />
 
     </LinearLayout>
 

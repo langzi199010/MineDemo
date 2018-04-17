@@ -34,7 +34,8 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:multidex:1.0.0'
     //权限管理
-    compile 'com.yanzhenjie:permission:1.1.2'
+//    compile 'com.yanzhenjie:permission:1.1.2'
+    implementation 'com.yanzhenjie:permission:2.0.0-rc4'
     //热修复
     compile 'com.aliyun.ams:alicloud-android-hotfix:3.2.1'
     //butterknife
