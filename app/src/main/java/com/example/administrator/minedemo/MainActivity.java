@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.administrator.minedemo.tools.MyPermissions;
+import com.example.administrator.minedemo.tools.NetWorkUtils;
 
 import java.security.acl.Permission;
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
+        mainQuanxian.setText(NetWorkUtils.cesh());
     }
 
     @OnClick({R.id.main_quanxian, R.id.main_dialog,R.id.main_okhttp})

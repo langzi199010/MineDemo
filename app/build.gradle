@@ -8,7 +8,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,7 +34,7 @@ dependencies {
     //权限管理
     compile 'com.yanzhenjie:permission:1.1.2'
     //热修复
-    compile 'com.aliyun.ams:alicloud-android-hotfix:3.2.0'
+    compile 'com.aliyun.ams:alicloud-android-hotfix:3.2.1'
     //butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

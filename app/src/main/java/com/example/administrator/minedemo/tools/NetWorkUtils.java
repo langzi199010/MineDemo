@@ -21,4 +21,7 @@ public class NetWorkUtils {
 
         return false;
     }
+    public static  String cesh(){
+        return "PPPPP";
+    }
 }
