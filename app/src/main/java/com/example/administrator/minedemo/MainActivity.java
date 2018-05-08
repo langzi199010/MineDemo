@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.smart_refresh2:
+                //帧动画与 json格式的刷新
                 intent=new Intent(MainActivity.this, SmartRefreshActivity2.class);
                 startActivity(intent);
                 break;

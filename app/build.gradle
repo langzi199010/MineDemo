@@ -23,6 +23,27 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        sourceSets.main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+
+    // 签名配置
+    signingConfigs {
+        release {
+            try {
+                storeFile file("./keystore/android.jks")
+                storePassword "android"
+                keyAlias "mineandroid"
+                keyPassword "android"
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
+
+        debug {
+            storeFile file("./keystore/android.jks")
+        }
     }
 //    compileOptions {
 //        targetCompatibility 1.8
