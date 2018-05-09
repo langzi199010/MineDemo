@@ -120,4 +120,9 @@ public class MyApplication extends DefaultApplicationLike {
         getApplication().registerActivityLifecycleCallbacks(callbacks);
     }
 
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        Beta.unInit();
+    }
 }
