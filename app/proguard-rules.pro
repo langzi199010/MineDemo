@@ -23,8 +23,18 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-# 热修复混淆模块
+# Bugly混淆规则
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
- -keep class android.support.**{*;}
+
+# 避免影响升级功能，需要keep住support包的类
+-keep class android.support.**{*;}
+
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+-dontwarn okhttp3.**
+
+-keep class okio.** { *; }
+-keep interface okio.** { *; }
+-dontwarn okio.**
 
